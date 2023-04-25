@@ -20,7 +20,7 @@ void swap(int *vetor, int a, int b){
     vetor[b] = aux;
 }
 
-void bubbleSort(int *vetor, int tam){
+/*void bubbleSort(int *vetor, int tam){
     for (int i = 0; i < tam; i++){
         for (int j = 0; j < tam-1; j++){
             if ((vetor[j] > vetor[j+1])){
@@ -28,21 +28,21 @@ void bubbleSort(int *vetor, int tam){
             }
         }
     }
-}
+}*/
 
-/*void bubbleSort(int *vetor, int tam){
+void bubbleSort(int *vetor, int tam){
     int troca = 1;
     while (troca){
         troca = 0;
         for (int i = 0; i < tam; i++){
-            if (vetor[i] > vetor[i+1]){
+            if (vetor[i] < vetor[i+1]){
                 swap(vetor, i, i+1);
                 troca = 1;
             }   
         }
     }
     
-}*/
+}
 
 /*void bubbleSort(int *vetor, int tam){
     for (int i = 0; i < tam; i++){

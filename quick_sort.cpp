@@ -21,7 +21,7 @@ void swap(int *vetor, int a, int b){
     vetor[b] = aux;
 }
 
-int particiona(int *vetor, int inicio, int fim){
+/*int particiona(int *vetor, int inicio, int fim){
     int pivo = vetor[fim];
     int indice_pivot = inicio;
     
@@ -33,6 +33,19 @@ int particiona(int *vetor, int inicio, int fim){
     }
     swap(vetor, indice_pivot, fim);
     return indice_pivot;
+}*/
+int particiona(int *vetor, int inicio, int fim){
+    int pivo = vetor[fim];
+    int indice_barra_amarela = inicio; //onde o pivo deve ficar, mas só mexe no pivo no final
+    
+    for(int indice_barra_roxa = inicio; indice_barra_roxa < fim; indice_barra_roxa++){
+        if(vetor[indice_barra_roxa] >= pivo){
+            swap(vetor, indice_barra_roxa, indice_barra_amarela);
+            indice_barra_amarela++;
+        }
+    }
+    swap(vetor, indice_barra_amarela, fim); //quando chega no final trocar o pivot para a posição correta
+    return indice_barra_amarela;
 }
 
 

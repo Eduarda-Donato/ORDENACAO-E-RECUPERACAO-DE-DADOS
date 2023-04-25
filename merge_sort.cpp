@@ -6,6 +6,8 @@
 #define TAM2 5
 #define TAM3 TAM1+TAM2
 
+#define T 5
+
 void printVetor(int *vetor, int tam){
     for (int i = 0; i < tam; i++){
         printf("%d ", vetor[i]);
@@ -106,10 +108,10 @@ int main(){
     int v3[5] = {10,2,7,0,4};*/
 
     criaVetor(vetor, TAM1);
-    bubbleSort(vetor, TAM1);
+    //bubbleSort(vetor, TAM1);
     printVetor(vetor, TAM1);
     criaVetor(vetor2, TAM2);
-    bubbleSort(vetor2, TAM2);
+    //bubbleSort(vetor2, TAM2);
     printVetor(vetor2, TAM2);
 
     criaVetorzao(vetorzao, TAM3, vetor, TAM1, vetor2, TAM2);
@@ -122,8 +124,8 @@ int main(){
     printVetor(vetorzao, TAM3);
 
     //intercalar(v2,0,2,6);
-    /*merge_sort(v2,0,6);
-    printVetor(v2, 7);*/
+    /*merge_sort(vetor2,0,7);
+    printVetor(vetor2, 8);*/
 
     //intercalar(v3,0,0,1);
     //merge_sort(v3,0,4);
