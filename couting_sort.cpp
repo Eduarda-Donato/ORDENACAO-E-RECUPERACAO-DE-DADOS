@@ -1,41 +1,45 @@
 #include <iostream>
 #include <time.h>
 
+#define TAMV 10
+
 void cria_vetor(int* v, int tam){ 
     for (int i = 0; i < tam; i++){ 
-        v[i] = rand() % 10; }
+        v[i] = rand() % 9999; 
     }
-    void print_vetor(int* v, int tam){ 
-        for (int i = 0; i < tam; i++){ 
-            printf("%d ", v[i]); 
-        } 
-        printf("\n");
+}
+void print_vetor(int* v, int tam){ 
+    for (int i = 0; i < tam; i++){ 
+        printf("%d ", v[i]); 
+    } 
+    printf("\n");
+}
+void zera_vetor(int* v, int tam){ 
+    for (int i = 0; i < tam; i++){ 
+        v[i] = 0; 
     }
-    void zera_vetor(int* v, int tam){ 
-        for (int i = 0; i < tam; i++){ 
-            v[i] = 0; 
-        }
-    }
+}
 void counting_sort(int* v, int tam){ 
-    int maior = 0; int v_aux[tam]; 
+    int maior = 0; 
+    int v_aux[tam]; 
     zera_vetor(v_aux, tam); 
     for (int i = 0; i < tam; i++){ 
-        if (v[i] > maior){ maior = v[i]; 
+        if (v[i] > maior){ 
+            maior = v[i]; 
         } 
     } 
     maior += 1; 
     int v_contador[maior]; 
     zera_vetor(v_contador,maior);
     for (int i = 0; i < tam; i++){ 
-        int aux = v[i]; 
         v_contador[v[i]] += 1; 
     } 
     //print_vetor(v_contador,maior); 
     //printf("\n"); 
-    for (int i = 0; i < tam; i++){ 
+    for (int i = 0; i < maior; i++){ 
         if(i != 0){ 
             v_contador[i] = v_contador[i] + v_contador[i-1]; 
-            } 
+        } 
     } 
     //print_vetor(v_contador,maior);
     for (int i = 0; i < tam; i++){ 
@@ -50,13 +54,13 @@ void counting_sort(int* v, int tam){
         }
 }
 
-int main(int argc, char const *argv[]){ 
+/*int main(){ 
     time_t t; 
     srand(time(&t)); 
-    int v[10];
-    cria_vetor(v, 10); 
-    print_vetor(v,10); 
-    counting_sort(v,10); 
-    print_vetor(v,10); 
+    int v[TAMV];
+    cria_vetor(v, TAMV); 
+    print_vetor(v,TAMV); 
+    counting_sort(v,TAMV); 
+    print_vetor(v,TAMV); 
     return 0;
-}
+}*/
